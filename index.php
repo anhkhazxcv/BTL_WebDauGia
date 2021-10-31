@@ -157,7 +157,7 @@
 
 <?php
 error_reporting(0);
-include 'datab.php';
+include 'config.php';
 $sql = "SELECT * FROM product";
 $result = mysqli_query($conn,$sql);
 
