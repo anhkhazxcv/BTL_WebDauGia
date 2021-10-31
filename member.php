@@ -34,7 +34,7 @@ if(!isset($_SESSION['uname']) || !isset($_SESSION['pwd'])){
 	border:none;
 }
 </style>
-	<title>Members</title>
+	<title>Thành Viên</title>
 	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -44,7 +44,7 @@ if(!isset($_SESSION['uname']) || !isset($_SESSION['pwd'])){
 </head>
 <body>
 <header style="text-align:left;">
-<a href="logout.php" align="right" style="color:white; text-decoration:none;">LOGOUT</a> 
+<a href="logout.php" align="right" style="color:white; text-decoration:none;">Đăng Xuất</a> 
 </header>
 
 
@@ -55,25 +55,24 @@ if(!isset($_SESSION['uname']) || !isset($_SESSION['pwd'])){
 
 <div class="div">
 <h1 style="font-family:Times New Roman, Times, serif;color: white; font-weight: bold;
-" align="center"> To start bidding click here</h1>
-<center><button  class="mem_but" ><a href="bidtest.php" style="text-decoration:none; color:white;">Bid</a></button></center>
+" align="center"> Đấu Giá Sản Phẩm</h1>
+<center><button  class="mem_but" ><a href="bidtest.php" style="text-decoration:none; color:white;">Đấu Giá</a></button></center>
 
 </div >
 <div  class="div">
 <h1 style="font-family:Times New Roman, Times, serif ; color: white; font-weight: bold;
-" align="center"> To sell your product click here</h1>
-<center><button  class="mem_but"><a href="sell12.php" style="text-decoration:none; color: white; ">Sell</a></button></center>
+" align="center"> Bán Sản Phẩm</h1>
+<center><button  class="mem_but"><a href="sell12.php" style="text-decoration:none; color: white; ">Bán</a></button></center>
 </div>
 
 </ul>
 <footer style="position: fixed; bottom:0; width: 100%;">
 <br>
-<a href="bidbuyuse.php">AUCTION HOME </a>
-|<a href="winners.php"> MEET WINNERS </a>
-|<a href="about.php"> ABOUT US </a>
-|<a href="contactus.php">CONTACT US</a>
-<h5>Copyright 2016 - 2017 Bidbuyuse Corporation. All rights reserved.
-</h5>
+<a href="bidbuyuse.php">Trang Chủ</a>
+|<a href="winners.php"> Người Thắng </a>
+|<a href="about.php"> Giới Thiệu </a>
+|<a href="contactus.php">Liên Hệ</a>
+<h5>Nguyễn Văn Khá</h5>
 </footer>
 
 
