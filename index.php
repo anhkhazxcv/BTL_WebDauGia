@@ -102,7 +102,7 @@
 
 <div>
 <ul class="ul2">
-  <li><a class="active" href="bidbuyuse.php">Trang Chủ</a></li>
+  <li><a class="active" href="index.php">Trang Chủ</a></li>
   <li><a href="about.php">Giới Thiệu</a></li>
   <li><a href="contactus.php">Liên Hệ</a></li>
   <li><a href="member.php">Sản Phẩm</a></li>
