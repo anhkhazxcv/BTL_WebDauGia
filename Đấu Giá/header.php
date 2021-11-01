@@ -4,6 +4,9 @@
 <title>a</title>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="css/style.css">
+<?php
+        include('config.php');
+    ?>
 <style>
 	.row::after 
 	{
@@ -47,13 +50,14 @@
 
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
+     
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
 
 
 </head>
 <body>
 
-<div>
+    <div>
 <ul class="ul">
 	<li style="float: left;"><img src="images/logo2.png" height="120px" width="auto" vspace="1%" hspace="5%" /></li>
 			
@@ -75,9 +79,10 @@
   <li><a class="active" href="bidbuyuse.php">Trang Chủ</a></li>
   <li><a href="about.php">Giới Thiệu</a></li>
   <li><a href="contactus.php">Liên Hệ</a></li>
-  <li><a href="member.php">Sản Phẩm</a></li>
+  <li><a href="index.php">Sản Phẩm</a></li>
   <li><a href="register_form.php">Đăng Kí</a></li>
   <li><a href="winners.php">Chiến Thắng</a></li>
  
 </ul>
 </div>
+
