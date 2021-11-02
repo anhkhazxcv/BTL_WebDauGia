@@ -19,7 +19,7 @@ $fn=$_POST['fname'];
 $ln=$_POST['lname'];
 $cn=$_POST['cname'];
 $e=$_POST['email'];
-$cn=$_POST['phone'];
+$pn=$_POST['phone'];
 $ps=$_POST['password'];
 
 
@@ -29,11 +29,11 @@ $sel="SELECT * FROM users WHERE email ='$e'";
 $r=$con->query($sel);
 
 if($r->num_rows> 0){
-	echo "email tồn tại";
+	echo "Email existed";
 }
 
 else {
-$ins="INSERT INTO users SET name='$n',email='$e',password='$ps', phonenumber='$cn',dob='$dob', username='$u'";
+$ins="INSERT INTO users SET fname='$fn', lname= '$ln',email='$e',pwd='$ps', mobile='$pn', uid='$cn'";
 $con->query($ins);
  
 }
