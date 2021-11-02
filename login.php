@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	$password = $_POST['password'];
 	if($username && $password)
 	{
-			$sql = "SELECT * FROM user1 WHERE uid='$username' AND pwd='$password'";
+			$sql = "SELECT * FROM users WHERE uid='$username' AND pwd='$password'";
 			$result = mysqli_query($conn,$sql);
 			if(!$row = mysqli_fetch_assoc($result))
 			{

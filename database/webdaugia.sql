@@ -84,26 +84,29 @@ INSERT INTO `product` (`pid`, `pname`, `pdesc`, `name`, `image`, `seller`, `star
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `user1`
+-- Cấu trúc bảng cho bảng `users`
 --
 
-CREATE TABLE `user1` (
+CREATE TABLE `users` (
   `fname` varchar(25) NOT NULL,
   `lname` varchar(25) NOT NULL,
   `uid` varchar(25) NOT NULL,
   `pwd` varchar(25) NOT NULL,
   `email` varchar(25) NOT NULL,
   `mobile` varchar(25) NOT NULL,
-  `dob` varchar(25) NOT NULL,
-  `address` varchar(25) NOT NULL
+  `dob` date NOT NULL,
+  `address` varchar(60) NOT NULL,
+  `admin` char(0) default null
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Đang đổ dữ liệu cho bảng `user1`
 --
 
-INSERT INTO `user1` (`fname`, `lname`, `uid`, `pwd`, `email`, `mobile`, `dob`, `address`) VALUES
-('Nguyen Van', 'Kha', 'anhkhazxcv', '123456', 'anhkhazxcv@gmail.com', '0329994871', '22/10/2000', 'Tri Qua Bac Ninh');
+INSERT INTO `users` (`fname`, `lname`, `uid`, `pwd`, `email`, `mobile`, `dob`, `address`, `admin`) VALUES
+('Nguyen Van', 'Kha', 'anhkhazxcv', '123456', 'anhkhazxcv@gmail.com', '0329994871', '10/22/2000', 'Tri Qua Bac Ninh', ' '),
+('Nguyen Hong', 'Ha', 'hasua', '123456', 'ha11882000@gmail.com', '0868342396', '08/10/2000', 'Hanoi', ' '),
+('Nguyen Van', 'A', 'Abc', '654321', 'a@gmail.com', '0123456789', '01/01/2005', 'Nha', null)
 
 --
 -- Chỉ mục cho các bảng đã đổ
