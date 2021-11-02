@@ -84,7 +84,7 @@ INSERT INTO `product` (`pid`, `pname`, `pdesc`, `name`, `image`, `seller`, `star
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `user1`
+-- Cấu trúc bảng cho bảng `users`
 --
 
 CREATE TABLE `users` (
@@ -104,7 +104,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`fname`, `lname`, `uid`, `pwd`, `email`, `mobile`, `dob`, `address`, `admin`) VALUES
-('Nguyen Van', 'Kha', 'anhkhazxcv', '123456', 'anhkhazxcv@gmail.com', '0329994871', '10/22/2000', 'Tri Qua Bac Ninh', ' ');
+('Nguyen Van', 'Kha', 'anhkhazxcv', '123456', 'anhkhazxcv@gmail.com', '0329994871', '10/22/2000', 'Tri Qua Bac Ninh', ' '),
 ('Nguyen Hong', 'Ha', 'hasua', '123456', 'ha11882000@gmail.com', '0868342396', '08/10/2000', 'Hanoi', ' '),
 ('Nguyen Van', 'A', 'Abc', '654321', 'a@gmail.com', '0123456789', '01/01/2005', 'Nha', null)
 
