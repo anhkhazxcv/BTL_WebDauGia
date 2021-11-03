@@ -19,7 +19,8 @@
         $sp_nguoimua = $_POST['sp_nguoimua'];
         
 
-        mysqli_query($conn, "INSERT INTO quanlysp (sp_ma,sp_loai, sp_anh, sp_ten, sp_mota, sp_gia, sp_ngaybd,sp_ngaykt,sp_nguoiban,sp_trangthai,sp_nguoimua) VALUES ('$sp_ma','$sp_loai',$sp_anh','$sp_ten','$sp_mota','$sp_gia','$sp_ngaybd''$sp_ngaykt','$sp_nguoiban', '$sp_trangthai','$sp_nguoimua') ");
+          mysqli_query($conn, "INSERT INTO `quanlysp` (sp_ma, sp_loai, sp_anh, sp_ten, sp_mota, sp_gia, sp_ngaybd, sp_ngaykt, sp_nguoiban, sp_trangthai, sp_nguoimua) VALUES ('$sp_ma', '$sp_loai', $sp_anh , '$sp_ten', '$sp_mota', '$sp_gia', '$sp_ngaybd', '$sp_ngaykt', '$sp_nguoiban', '$sp_trangthai', '$sp_nguoimua')");
+
         header("location:   index-sp.php");
     }
     
