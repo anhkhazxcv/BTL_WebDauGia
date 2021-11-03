@@ -68,7 +68,7 @@
         </div> 
       
         <form method="POST" action="index-sp.php">
-        <button type="submit" class="btn btn-primary">Back</button>
+        <button type="submit" class="btn btn-primary">Trở Lại</button>
     </form>
 </div>
 
