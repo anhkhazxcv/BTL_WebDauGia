@@ -1,3 +1,6 @@
+/* {
+    color:white;
+} */
 .spacing
 {
     margin: 0px 0px 0px 80px;
@@ -282,6 +285,4 @@ nav {
     height:25px;
     width:25px;
 }
-.aaaa{
-    text-align: right;
-}
+
