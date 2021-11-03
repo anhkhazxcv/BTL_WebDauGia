@@ -1,51 +1,64 @@
 <?php
-include('../header.php');
-$result = mysqli_query($conn,"SELECT * FROM user1");
-if(mysqli_num_rows($result) > 0){
-    $car = mysqli_fetch_all($result);
-}else echo 'Không đổ ra dữ liệu';
+    include('../header-sp.php');
+    $result = mysqli_query($conn,"SELECT * FROM user1");
+    if(mysqli_num_rows($result) > 0){
+        $user = mysqli_fetch_all($result);
+    }else echo 'Không đổ ra dữ liệu';
 
+    if(isset($_POST['save'])){
+        $fname = $_POST['fname'];
+        $lname = $_POST['lname'];
+        $uid = $_POST['uid'];
+        $pwd = $_POST['pwd'];
+        $email = $_POST['email'];
+        $mobile = $_POST['mobile'];
+        $dob = $_POST['dob'];
+        $address = $_POST['address'];
+        mysqli_query($conn, "INSERT INTO user1 (fname, lname, uid, pwd, email, mobile, dob, address) VALUES ('$fname','$lname','$uid','$pwd','$email','$mobile','$dob','$address') ");
+        header("location:admin.php");
+    }
+    
 ?>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Họ tên đệm</th>
-      <th scope="col">Tên</th>
-      <th scope="col">Tên đăng nhập</th>
-      <th scope="col">Mật khẩu</th>
-      <th scope="col">Số điện thoại</th>
-      <th scope="col">Emai</th>    
-      <th scope="col">Ngày sinh</th>
-      <th scope="col">Địa chỉ</th>
-      <th scope="col">xem</th>
-      <th scope="col">sửa</th>
-      <th scope="col">xóa</th>
-    </tr>
-  </thead>
-  <tbody>
-            <?php
-                foreach($car as $i){
-            ?>
-            <tr>
-                <th><?php echo $i[0]; ?></th>
-                <th><?php echo $i[1]; ?></th>
-                <th><?php echo $i[2]; ?></th>
-                <th><?php echo $i[3]; ?></th>
-                <th><?php echo $i[4]; ?></th>
-                <th><?php echo $i[5]; ?></th>
-                <th><?php echo $i[6]; ?></th>
-                <th><?php echo $i[7]; ?></th>
-                <th><a href="details.php?id=<?php echo $i[5];?>"><i class="fas fa-eye"></i></a></th>
-                <th><a href="edit.php?id=<?php echo $i[5];?>"><i class="far fa-edit"></i></a></th>
-                <th><a href="delete.php?id=<?php echo $i[5];?>"><i class="far fa-trash-alt"></i></a></th>
-                
-            </tr>
-            <?php
-                }
-            ?>
-        </tbody>
-</table>
-<form method="POST" action="create.php">
-        <button type="submit" class="btn btn-primary">New</button>
+<div class="container">
+    <form method="POST">
+    <div class="form-group">
+            <label>ID</label>
+            <input type="text" class="form-control" name="id" readonly>
+    </div>  
+        <div class="form-group">
+            <label>Họ tên đệm</label>
+            <input type="text" class="form-control" name="fname" >
+        </div>
+        <div class="form-group">
+            <label>Tên</label>
+            <input type="text" class="form-control" name="lname" >
+        </div>
+        <div class="form-group">
+            <label>Tên đăng nhập</label>
+            <input type="text" class="form-control" name="uid" >
+        </div>
+        <div class="form-group">
+            <label>Mật khẩu</label>
+            <input type="text" class="form-control" name="pwd" >
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="text" class="form-control" name="email" >
+        </div>
+        <div class="form-group">
+            <label>Số Điện thoại</label>
+            <input type="text" class="form-control" name="mobile" >
+        </div>
+        <div class="form-group">
+            <label>Ngày sinh</label>
+            <input type="text" class="form-control" name="dob" >
+        </div>
+        <div class="form-group">
+            <label>Địa chỉ</label>
+            <input type="text" class="form-control" name="address" >
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary" name="save">Save</button>
+        </div>
     </form>
+</div>

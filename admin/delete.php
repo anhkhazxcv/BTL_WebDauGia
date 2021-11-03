@@ -1,12 +1,9 @@
 <?php
-    include('header.php');
+    include('../header-sp.php');
     if(isset($_GET['id'])){
         $id = $_GET['id'];
-        mysqli_query($conn, "DELETE FROM cars WHERE vehicle_id='$id'");
-        header("location: index.php");
+        mysqli_query($conn, "DELETE FROM user1 WHERE id ='$id'");
+        header("location: admin.php");
     }
 ?>
 
-<?php
-    include('footer.php');
-?>
