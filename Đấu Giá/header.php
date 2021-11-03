@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <?php
-        include('config.php');
+        include('config-sp.php');
     ?>
 <style>
 	.row::after 
