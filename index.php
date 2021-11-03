@@ -1,85 +1,20 @@
-<!DOCTYPE html>
+<?php
+include('header.php');
+?>
+<!doctype html>
 <html lang="en">
-<head>
-<title>a</title>
-<meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<style>
-	.row::after 
-	{
-    	content: "";
-    	clear: both;
-    	display: block;
-	}
-	[class*="col-"] 
-	{
-    	float: left;
-   		padding: 15px;
-	}
-.col-1 {width: 8.33%;}
-.col-2 {width: 16.66%;}
-.col-3 {width: 25%;}
-.col-4 {width: 33.33%;}
-.col-5 {width: 41.66%;}
-.col-6 {width: 50%;}
-.col-7 {width: 58.33%;}
-.col-8 {width: 66.66%;}
-.col-9 {width: 75%;}
-.col-10 {width: 83.33%;}
-.col-11 {width: 91.66%;}
-.col-12 {width: 100%;}
-	.menu 
-	{
-    	color: #ffffff;
-    	font: normal normal normal 14px/1 FontAwesome;
-    	font-size: inherit;
-    	text-rendering: auto;
-	}
-</style>
-<script type="text/javascript">
-    function getTimeRemaining(endtime){
-      var t = Date.parse(endtime) - Date.parse(new Date());
-      var seconds = Math.floor( (t/1000) % 60 );
-      var minutes = Math.floor( (t/1000/60) % 60 );
-      var hours = Math.floor( (t/(1000*60*60)) % 24 );
-      var days = Math.floor( t/(1000*60*60*24) );
-      return {
-        'total': t,
-        'days': days,
-        'hours': hours,
-        'minutes': minutes,
-        'seconds': seconds
-      };
-    }
-    function initializeClock(id, endtime){
-      var clock = document.getElementById(id);
-      var daysSpan = clock.querySelector('.days');
-    var hoursSpan = clock.querySelector('.hours');
-    var minutesSpan = clock.querySelector('.minutes');
-    var secondsSpan = clock.querySelector('.seconds');
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        var timeinterval = setInterval(function(){
-      var t = getTimeRemaining(endtime);
-      clock.innerHTML =  t.days + ':' +
-                       t.hours
-                       + ':' + t.minutes + ':' +
-                       t.seconds;
-      if(t.total<=0){
-        clearInterval(timeinterval);}     
-      },1000);
-      daysSpan.innerHTML = t.days;
-      hoursSpan.innerHTML = t.hours;
-      minutesSpan.innerHTML = t.minutes;
-      secondsSpan.innerHTML = t.seconds;
-    }
-    
-        
-    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
 
-  </script>
-
-</head>
-<body>
 
 <div>
 <ul class="ul">
@@ -100,18 +35,6 @@
    </div>
 </div>
 
-<div>
-<ul class="ul2">
-  <li><a class="active" href="bidbuyuse.php">Trang Chủ</a></li>
-  <li><a href="about.php">Giới Thiệu</a></li>
-  <li><a href="contactus.php">Liên Hệ</a></li>
-  <li><a href="member.php">Sản Phẩm</a></li>
-  <li><a href="register_form.php">Đăng Kí</a></li>
-  <li><a href="winners.php">Chiến Thắng</a></li>
- 
-</ul>
-</div>
-  
 
 
 
@@ -218,16 +141,9 @@ echo "</script>";
       	
     
   </div>
-
-<footer>
-<br>
-<a href="bidbuyuse.php"><font color="#fff">Trang Chủ</font></a> 
-| <a href="about.php"><font color="#fff">Hoạt Động </font></a>
-| <a href="login.php"><font color="#fff">Sản Phẩm Nổi Bật</font></a>
-| <a href="contactus.php"><font color="#fff">Liên hệ</font></a>
-<h5>Nguyễn Văn Khá.
-</h5>
-</footer>
+  <?php
+  include('footer.php');
+  ?>
 
 </body>
 </html>
@@ -236,3 +152,11 @@ echo "</script>";
 
 
 
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

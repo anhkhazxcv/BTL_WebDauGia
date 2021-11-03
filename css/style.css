@@ -1,6 +1,3 @@
-{
-    color:white;
-}
 .spacing
 {
     margin: 0px 0px 0px 80px;
@@ -27,13 +24,6 @@ nav{
     width: auto;
 }
 
-li input [type=text,password]{
-    border-radius: 10px;
-    border: 2px solid #73AD21;
-    padding:0px;
-    height: 3em;
-
-}
 .ul {
     list-style-type: none;
     margin: 0;
@@ -233,27 +223,27 @@ font-family: "Roboto Condensed";
     font-size: 18px;
     color: white;
 }
-#contact
+/* #contact
 {
         
           font-size: 20px;
          width:900px;
-          align:center;
+           align:center;
         text-align:center; 
 
 
-}
+} */
 #add
 {
      float:right;
         
         
-        border-radius:5px;
+     /*    border-radius:5px;
          
           padding:25px 25px 20px; 
           margin:80px 0; 
-          color:; 
-        text-align:center; 
+           color: ; 
+        text-align:center; */ 
 
 }
 #ed
@@ -291,4 +281,7 @@ nav {
 {
     height:25px;
     width:25px;
+}
+.aaaa{
+    text-align: right;
 }
