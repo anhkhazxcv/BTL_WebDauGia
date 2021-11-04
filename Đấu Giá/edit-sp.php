@@ -2,37 +2,38 @@
     include('header-sp.php');
     if(isset($_GET['id'])){
         $id = $_GET['id'];
-        $result = mysqli_query($conn, "SELECT * FROM quanlysp WHERE sp_ma = '$id'");
+        $result = mysqli_query($conn, "SELECT * FROM product WHERE sp_id = '$id'");
         if(mysqli_num_rows($result)==1){
             $quanlysp = mysqli_fetch_array($result);
-            $sp_ma =  $quanlysp['sp_ma'];
-            $sp_loai = $quanlysp['sp_loai'];
-            $sp_anh =  $quanlysp['sp_anh'];
-            $sp_ten =  $quanlysp['sp_ten'];
-            $sp_mota =  $quanlysp['sp_mota'];
-            $sp_gia =  $quanlysp['sp_gia'];
-            $sp_ngaybd =  $quanlysp['sp_ngaybd'];
-            $sp_ngaykt = $quanlysp['sp_ngaykt'];
-            $sp_nguoiban = $quanlysp['sp_nguoiban'];
-            $sp_trangthai = $quanlysp['sp_trangthai'];
-            $sp_nguoimua = $quanlysp['sp_nguoimua'];
+            $sp_id =  $quanlysp['sp_id'];
+            $sp_type = $quanlysp['sp_type'];
+            $sp_img =  $quanlysp['sp_img'];
+            $sp_name =  $quanlysp['sp_name'];
+            $sp_description =  $quanlysp['sp_description'];
+            $sp_price =  $quanlysp['sp_price'];
+            $sp_startdate =  $quanlysp['sp_startdate'];
+            $sp_enddate = $quanlysp['sp_enddate'];
+            
+            $sp_status = $quanlysp['sp_status'];
+            $sp_buyer = $quanlysp['sp_buyer'];
+            $uid = $quanlysp['uid'];
             
         }
     }
     if(isset($_POST['update'])){
-        $sp_ma = $_POST['sp_ma'];
-        $sp_loai = $_POST['sp_loai'];
-        $sp_anh = $_POST['sp_anh'];
-        $sp_ten = $_POST['sp_ten'];
-        $sp_mota = $_POST['sp_mota'];
-        $sp_gia = $_POST['sp_gia'];
-        $sp_ngaybd = $_POST['sp_ngaybd'];
-        $sp_ngaykt = $_POST['sp_ngaykt'];
-        $sp_nguoiban = $_POST['sp_nguoiban'];
-        $sp_trangthai = $_POST['sp_trangthai'];
-        $sp_nguoimua = $_POST['sp_nguoimua'];
+        $sp_id = $_POST['sp_id'];
+        $sp_type = $_POST['sp_type'];
+        $sp_img = $_POST['sp_img'];
+        $sp_name = $_POST['sp_name'];
+        $sp_description = $_POST['sp_description'];
+        $sp_price = $_POST['sp_price'];
+        $sp_startdate = $_POST['sp_startdate'];
+        $sp_enddate = $_POST['sp_enddate'];
+        $sp_status = $_POST['sp_status'];
+        $sp_buyer = $_POST['sp_buyer'];
+        $uid = $_POST['uid'];
 
-        mysqli_query($conn, "UPDATE quanlysp SET sp_ma='$sp_ma',sp_loai='$sp_loai', sp_anh='$sp_anh', sp_ten='$sp_ten', sp_mota='$sp_mota', sp_gia='$sp_gia', sp_ngaybd='$sp_ngaybd',sp_ngaykt='$sp_ngaykt',sp_nguoiban='$sp_nguoiban',sp_trangthai='$sp_trangthai',sp_nguoimua='$sp_nguoimua' WHERE sp_ma ='$id' ");
+        mysqli_query($conn, "UPDATE product SET sp_id='$sp_id',sp_type='$sp_type', sp_img='$sp_img', sp_name='$sp_name', sp_description='$sp_description', sp_price='$sp_price', sp_startdate='$sp_startdate',sp_enddate='$sp_enddate',sp_status='$sp_status',sp_buyer='$sp_buyer',uid='$uid' WHERE sp_id ='$id' ");
         header("location: index-sp.php");
     }
 ?>
@@ -41,51 +42,52 @@
        
         <div class="form-group">
             <label>Mã Sản Phẩm:</label>
-            <input type="number" class="form-control" name="sp_ma"value="<?php echo $id?>" >
+            <input type="number" class="form-control" name="sp_id"value="<?php echo $id?>" >
         </div>
         <div class="form-group">
             <label>Loại sản phẩm:</label>
-            <input type="text" class="form-control" name="sp_loai" value="<?php echo $sp_loai?>" >
+            <input type="text" class="form-control" name="sp_type" value="<?php echo $sp_type?>" >
         </div>
         <div class="form-group">
             <label>Ảnh sản phẩm:</label>
-            <input type="text" class="form-control" name="sp_anh" value="<?php echo $sp_anh?>" >
+            <input type="text" class="form-control" name="sp_img" value="<?php echo $sp_img?>" >
         </div>
         <div class="form-group">
             <label>Tên sản phẩm:</label>
-            <input type="text" class="form-control" name="sp_ten" value="<?php echo $sp_ten?>" >
+            <input type="text" class="form-control" name="sp_name" value="<?php echo $sp_name?>" >
         </div>
         <div class="form-group">
             <label>Mô tả sản phẩm:</label>
-            <input type="text" class="form-control" name="sp_mota" value="<?php echo $sp_mota?>">
+            <input type="text" class="form-control" name="sp_description" value="<?php echo $sp_description?>">
         </div>
 
         <div class="form-group">
             <label>Giá khởi điểm đấu giá:</label>
-            <input type="number" class="form-control" name="sp_gia"  value="<?php echo $sp_gia?>">
+            <input type="number" class="form-control" name="sp_price"  value="<?php echo $sp_price?>">
         </div>
 
         <div class="form-group">
 		    <label for="birthday">Ngày đấu giá:</label>
-			<input type="date" class="form-control" id="year" name=" sp_ngay" value="<?php echo $sp_ngaybd?>" >
+			<input type="date" class="form-control" id="year" name=" sp_startdate" value="<?php echo $sp_startdate?>" >
 		</div>
         <div class="form-group">
 			<label for="birthday">Ngày kết thúc đấu giá:</label>
-			<input type="date" class="form-control" id="year" name=" sp_ngaykt" value="<?php echo $sp_ngaykt?>" >
+			<input type="date" class="form-control" id="year" name=" sp_enddate" value="<?php echo $sp_enddate?>" >
 		</div>
-        <div class="form-group">
-            <label>Người bán sản phẩm:</label>
-            <input type="text" class="form-control" name="sp_nguoiban" value="<?php echo $sp_nguoiban?>">
-        </div>
+       
         <div class="form-group">
             <label>Trạng thái sản phẩm:</label>
-            <input type="text" class="form-control" name="sp_trangthai"  value="<?php echo $sp_trangthai?>">
+            <input type="text" class="form-control" name="sp_status"  value="<?php echo $sp_status?>">
         </div>
         <div class="form-group">
             <label>Người mua sản phẩm:</label>
-            <input type="text" class="form-control" name="sp_nguoimua" value="<?php echo $sp_nguoimua?>" >
+            <input type="text" class="form-control" name="sp_buyer" value="<?php echo $sp_buyer?>" >
         </div> 
 
+        <div class="form-group">
+            <label>Người bán sản phẩm:</label>
+            <input type="text" class="form-control" name="uid" value="<?php echo $uid?>">
+        </div>
 
         <div class="form-group">
             <button type="submit" class="btn btn-primary" name="update">Lưu sản phẩm</button>
