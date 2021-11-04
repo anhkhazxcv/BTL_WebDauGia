@@ -14,7 +14,7 @@
           <div>
           <ul class="ul">
             <li style="float: left;"><img src="images/logo2.png" height="120px" width="auto" vspace="1%" hspace="5%" /></li>
-                <a href="register_form.php">
+                <a href="register.php">
                 <li class="li"><button class="buttonp" style="background-color: blue;">Đăng Kí</button></li></a>
                 <a href="login.php"><li class="li"><button class="buttonp">Đăng Nhập</button></li></a>
                 
@@ -36,7 +36,7 @@
             <li><a href="about.php">Giới Thiệu</a></li>
             <li><a href="contactus.php">Liên Hệ</a></li>
             <li><a href="member.php">Sản Phẩm</a></li>
-            <li><a href="register_form.php">Đăng Kí</a></li>
+            <li><a href="register.php">Đăng Kí</a></li>
             <li><a href="winners.php">Chiến Thắng</a></li>
           
           </ul>
@@ -149,10 +149,7 @@
               
             </div>
 
-            <?php
-              include('footer.php');
-            ?>
-
+          
 
 
 

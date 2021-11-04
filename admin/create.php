@@ -4,7 +4,7 @@
     if(mysqli_num_rows($result) > 0){
         $user = mysqli_fetch_all($result);
     }else echo 'Không đổ ra dữ liệu';
-
+    var_dump('$user');
     if(isset($_POST['save'])){
         $fname = $_POST['fname'];
         $lname = $_POST['lname'];

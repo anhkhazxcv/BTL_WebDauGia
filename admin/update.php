@@ -1,10 +1,10 @@
 <?php
     include('headerad.php');
-    var_dump($_GET['uid']); 
     
-    /* if(isset($_GET['uid'])){
+    
+    if(isset($_GET['uid'])){
         $id = $_GET['uid'];
-        $result = mysqli_query($conn, "SELECT * FROM users WHERE uid = '$id'");
+        $result = mysqli_query($conn, "SELECT * FROM users WHERE `uid` = '$id'");
         if(mysqli_num_rows($result)==1){
             $user = mysqli_fetch_array($result);
             $fname = $user['fname'];
@@ -76,4 +76,4 @@
 <?php
     include('footerad.php');
 
-?> */
+?>
