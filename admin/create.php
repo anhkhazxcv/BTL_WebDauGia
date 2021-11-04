@@ -1,10 +1,9 @@
 <?php
     include('headerad.php');
-    $result = mysqli_query($conn,"SELECT * FROM user1");
+    $result = mysqli_query($conn,"SELECT * FROM users");
     if(mysqli_num_rows($result) > 0){
         $user = mysqli_fetch_all($result);
     }else echo 'Không đổ ra dữ liệu';
-    var_dump('$user');
     if(isset($_POST['save'])){
         $fname = $_POST['fname'];
         $lname = $_POST['lname'];
@@ -14,17 +13,13 @@
         $mobile = $_POST['mobile'];
         $dob = $_POST['dob'];
         $address = $_POST['address'];
-        mysqli_query($conn, "INSERT INTO user1 (fname, lname, uid, pwd, email, mobile, dob, address) VALUES ('$fname','$lname','$uid','$pwd','$email','$mobile','$dob','$address') ");
+        mysqli_query($conn, "INSERT INTO users (fname, lname, uid, pwd, email, mobile, dob, address) VALUES ('$fname','$lname','$uid','$pwd','$email','$mobile','$dob','$address') ");
         header("location:admin.php");
     }
     
 ?>
 <div class="container">
     <form method="POST">
-    <div class="form-group">
-            <label>ID</label>
-            <input type="text" class="form-control" name="id" readonly>
-    </div>  
         <div class="form-group">
             <label>Họ tên đệm</label>
             <input type="text" class="form-control" name="fname" >

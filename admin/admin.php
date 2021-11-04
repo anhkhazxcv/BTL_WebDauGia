@@ -1,7 +1,7 @@
 <?php
 include('headerad.php');
 include('../config.php');
-$result = mysqli_query($conn,"SELECT * FROM user1");
+$result = mysqli_query($conn,"SELECT * FROM users");
 if(mysqli_num_rows($result) > 0){
     $user = mysqli_fetch_all($result);
 }else echo 'Không đổ ra dữ liệu';
@@ -11,7 +11,6 @@ if(mysqli_num_rows($result) > 0){
 <table class="table">
   <thead>
     <tr>
-    <th scope="col">ID</th>
       <th scope="col">Họ tên đệm</th>
       <th scope="col">Tên</th>
       <th scope="col">Tên đăng nhập</th>
@@ -37,9 +36,8 @@ if(mysqli_num_rows($result) > 0){
                 <th><?php echo $i[5]; ?></th>
                 <th><?php echo $i[6]; ?></th>
                 <th><?php echo $i[7]; ?></th>
-                <th><?php echo $i[8]; ?></th>
-                <th><a href="update.php?id=<?php echo $i[0];?>"><i class="far fa-edit"></i></a></th>
-                <th><a href="delete.php?id=<?php echo $i[0];?>"><i class="far fa-trash-alt"></i></a></th>
+                <th><a href="update.php?id=<?php echo $i[2];?>"><i class="far fa-edit"></i></a></th>
+                <th><a href="delete.php?id=<?php echo $i[2];?>"><i class="far fa-trash-alt"></i></a></th>
                 
             </tr>
             <?php
