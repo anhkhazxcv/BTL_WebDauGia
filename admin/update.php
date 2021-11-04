@@ -1,5 +1,5 @@
 <?php
-    include('header.php');
+    include('headerad.php');
     if(isset($_GET['id'])){
         $id = $_GET['id'];
         $result = mysqli_query($conn, "SELECT * FROM user1 WHERE id = '$id'");
@@ -72,3 +72,7 @@
     </form>
 </div>
 
+<?php
+    include('footerad.php');
+
+?>

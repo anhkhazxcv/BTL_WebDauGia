@@ -39,7 +39,6 @@ if(mysqli_num_rows($result) > 0){
                 <th><?php echo $i[6]; ?></th>
                 <th><?php echo $i[7]; ?></th>
                 <th><?php echo $i[8]; ?></th>
-                <th><a href="details.php?id=<?php echo $i[3];?>"><i class="fas fa-eye"></i></a></th>
                 <th><a href="edit.php?id=<?php echo $i[3];?>"><i class="far fa-edit"></i></a></th>
                 <th><a href="delete.php?id=<?php echo $i[3];?>"><i class="far fa-trash-alt"></i></a></th>
                 

@@ -1,5 +1,5 @@
 <?php
-    include('../header-sp.php');
+    include('headerad.php');
     $result = mysqli_query($conn,"SELECT * FROM user1");
     if(mysqli_num_rows($result) > 0){
         $user = mysqli_fetch_all($result);
@@ -62,3 +62,8 @@
         </div>
     </form>
 </div>
+
+<?php
+    header('footerad.php');
+
+?>
