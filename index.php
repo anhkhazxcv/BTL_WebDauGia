@@ -1,16 +1,68 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <title>Title</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  </head>
-  <body>
+<?php
+session_start();
+include 'config.php';
+?>
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<style>
+.error {color: #FF0000;} 
+</style>
+<title></title>
 
+</head>
+
+<body background="images/pic11.jpg">
+<?php
+
+$username = $password= "";
+if ($_SERVER["REQUEST_METHOD"] == "POST")
+{
+	$username = $_POST['username'];
+	$password = $_POST['password'];
+	if($username && $password)
+	{
+			$sql = "SELECT * FROM users WHERE uid='$username' AND pwd='$password'";
+			$result = mysqli_query($conn,$sql);
+			if($row = mysqli_fetch_assoc($result))
+			{
+				$_SESSION['uname'] = $username;
+				$_SESSION['pwd'] = $password;
+				header('location: home.php');
+			}
+			else{
+			?>
+			<script>
+				alert("Nếu bạn chưa có, hãy tạo tài khoản!");
+				window.location="index.php";
+			</script>
+			<?php 
+			}
+
+	}
+}
+
+?>
+<div id="login">
+<h2>Login</h2>
+<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+
+<br><input type="text" name="username" placeholder="UserName" id="text"><span class="error">*</span><br>
+<br><input type="password" name="password" placeholder="Password" id="text"><span class="error">*</span><br><br>
+<input type="submit" class="buttonp">
+<a href="register_form.php">
+    <li class="li"><button class="buttonp" style="background-color: blue;">Đăng Kí</button></li>
+</a>
+
+</form>
+</div>
+
+
+</body>
+</html>
+
+<<<<<<< HEAD
           <div>
           <ul class="ul">
             <li style="float: left;"><img src="images/logo2.png" height="120px" width="auto" vspace="1%" hspace="5%" /></li>
@@ -162,3 +214,5 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>
+=======
+>>>>>>> bed40f4baf60663f69b91bcbab67a4241022909f
