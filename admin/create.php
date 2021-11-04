@@ -1,6 +1,6 @@
 <?php
     include('headerad.php');
-    $result = mysqli_query($conn,"SELECT * FROM users");
+    $result = mysqli_query($conn,"SELECT * FROM user1");
     if(mysqli_num_rows($result) > 0){
         $user = mysqli_fetch_all($result);
     }else echo 'Không đổ ra dữ liệu';
@@ -20,7 +20,11 @@
     
 ?>
 <div class="container">
-    <form method="POST"> 
+    <form method="POST">
+    <div class="form-group">
+            <label>ID</label>
+            <input type="text" class="form-control" name="id" readonly>
+    </div>  
         <div class="form-group">
             <label>Họ tên đệm</label>
             <input type="text" class="form-control" name="fname" >

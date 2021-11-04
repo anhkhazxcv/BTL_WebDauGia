@@ -1,5 +1,5 @@
 <?php
-    $conn = mysqli_connect('localhost', 'root', '', 'web_daugia');
+    $conn = mysqli_connect('localhost', 'root', '', 'webdaugia');
     if(!$conn){
         die("Kết nối thất bại" . mysqli_connect_error());
     } 
