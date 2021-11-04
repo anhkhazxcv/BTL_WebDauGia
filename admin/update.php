@@ -1,8 +1,10 @@
 <?php
     include('headerad.php');
-    if(isset($_GET['id'])){
-        $id = $_GET['id'];
-        $result = mysqli_query($conn, "SELECT * FROM user1 WHERE id = '$id'");
+    var_dump($_GET['uid']); 
+    
+    /* if(isset($_GET['uid'])){
+        $id = $_GET['uid'];
+        $result = mysqli_query($conn, "SELECT * FROM users WHERE uid = '$id'");
         if(mysqli_num_rows($result)==1){
             $user = mysqli_fetch_array($result);
             $fname = $user['fname'];
@@ -26,17 +28,13 @@
         $dob  = $_POST['dob'];
         $address  = $_POST['address'];
         //var_dump("UPDATE user1 SET `fname`='$fname', `lname`='$lname', `uid`='$uid', `pwd`='$pwd',`email` ='$email', `mobile`='$mobile', `dob` = '$dob', `address` = '$address' WHERE id='$id'");
-        mysqli_query($conn, "UPDATE user1 SET `fname`='$fname', `lname`='$lname', `uid`='$uid', `pwd`='$pwd',`email` ='$email', `mobile`='$mobile', `dob` = '$dob', `address` = '$address' WHERE id='$id'");
+        mysqli_query($conn, "UPDATE user1 SET `fname`='$fname', `lname`='$lname', `uid`='$uid', `pwd`='$pwd',`email` ='$email', `mobile`='$mobile', `dob` = '$dob', `address` = '$address' WHERE uid='$uid'");
         header("location: admin.php");
         
     }
 ?>
     <div class="container">
     <form method="POST">
-        <div class="form-group">
-            <label>ID</label>
-            <input type="text" class="form-control" name="id" value="<?php echo $id?>" readonly>
-        </div>
         <div class="form-group">
             <label>Họ tên đệm</label>
             <input type="text" class="form-control" name="fname" value="<?php echo $fname?>" >
@@ -78,4 +76,4 @@
 <?php
     include('footerad.php');
 
-?>
+?> */
