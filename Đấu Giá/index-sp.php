@@ -1,6 +1,6 @@
 <?php
     include('header-sp.php');
-    $result = mysqli_query($conn,"SELECT * FROM quanlysp");
+    $result = mysqli_query($conn,"SELECT * FROM product");
     if(mysqli_num_rows($result) > 0){
         $quanlysp = mysqli_fetch_all($result);
     }else echo 'Không đổ ra dữ liệu';
@@ -18,9 +18,9 @@
               <th>Giá khởi điểm đấu giá</th>
               <th>Ngày bắt đầu đấu giá</th>
               <th>Ngày kết thúc đấu giá</th>
-              <th>Người bán sản phẩm</th>
               <th>Trạng thái sản phẩm</th>
-              <th>Người mua sản phẩm</th>
+              <th>Người mua sản phẩm</th> 
+              <th>Người bán sản phẩm</th>
               <th width="60px">Xem chi tiết</th>
               <th width="60px">Sửa</th>
               <th width="60px">Xóa</th>
