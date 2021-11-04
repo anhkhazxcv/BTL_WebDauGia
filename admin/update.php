@@ -6,26 +6,29 @@
         if(mysqli_num_rows($result)==1){
             $user = mysqli_fetch_array($result);
             $fname = $user['fname'];
-            $lname = $cars['lname'];
-            $uid = $cars['uid'];
-            $pwd = $cars['pwd'];
-            $email = $cars['email'];
-            $mobile = $cars['mobile'];
-            $dob = $cars['dob'];
-            $address= $cars['address'];
+            $lname = $user['lname'];
+            $uid = $user['uid'];
+            $pwd = $user['pwd'];
+            $email = $user['email'];
+            $mobile = $user['mobile'];
+            $dob = $user['dob'];
+            $address= $user['address'];
         }
     }
     if(isset($_POST['update'])){
+        //var_dump($_POST);
         $fname = $_POST['fname'];
         $lname = $_POST['lname'];
         $uid = $_POST['uid'];
         $pwd = $_POST['pwd'];
         $email = $_POST['email'];
         $mobile = $_POST['mobile'];
-        $dob  = $_POST['dob '];
-        $address  = $_POST['address '];
-        mysqli_query($conn, "UPDATE user1 SET fname='$fname', lname='$lname', uid='$uid', pwd='$pwd',email ='$demail', mobile='$mobile', mobile='$mobile', WHERE uid='$id'");
-        header("location: index.php");
+        $dob  = $_POST['dob'];
+        $address  = $_POST['address'];
+        //var_dump("UPDATE user1 SET `fname`='$fname', `lname`='$lname', `uid`='$uid', `pwd`='$pwd',`email` ='$email', `mobile`='$mobile', `dob` = '$dob', `address` = '$address' WHERE id='$id'");
+        mysqli_query($conn, "UPDATE user1 SET `fname`='$fname', `lname`='$lname', `uid`='$uid', `pwd`='$pwd',`email` ='$email', `mobile`='$mobile', `dob` = '$dob', `address` = '$address' WHERE id='$id'");
+        header("location: admin.php");
+        
     }
 ?>
     <div class="container">
@@ -64,7 +67,7 @@
         </div>    
         <div class="form-group">
             <label>địa chỉ</label>
-            <input type="text" class="form-control" name="adress" value="<?php echo $address?>">
+            <input type="text" class="form-control" name="address" value="<?php echo $address?>">
         </div>    
         <div class="form-group">
             <button type="submit" class="btn btn-primary" name="update">Update</button>

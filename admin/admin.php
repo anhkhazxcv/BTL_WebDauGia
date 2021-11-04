@@ -1,5 +1,5 @@
 <?php
-include('../header-sp.php');
+include('headerad.php');
 include('../config.php');
 $result = mysqli_query($conn,"SELECT * FROM user1");
 if(mysqli_num_rows($result) > 0){
@@ -20,7 +20,6 @@ if(mysqli_num_rows($result) > 0){
       <th scope="col">Emai</th>    
       <th scope="col">Ngày sinh</th>
       <th scope="col">Địa chỉ</th>
-      <th scope="col">xem</th>
       <th scope="col">sửa</th>
       <th scope="col">xóa</th>
     </tr>
@@ -39,8 +38,8 @@ if(mysqli_num_rows($result) > 0){
                 <th><?php echo $i[6]; ?></th>
                 <th><?php echo $i[7]; ?></th>
                 <th><?php echo $i[8]; ?></th>
-                <th><a href="edit.php?id=<?php echo $i[3];?>"><i class="far fa-edit"></i></a></th>
-                <th><a href="delete.php?id=<?php echo $i[3];?>"><i class="far fa-trash-alt"></i></a></th>
+                <th><a href="update.php?id=<?php echo $i[0];?>"><i class="far fa-edit"></i></a></th>
+                <th><a href="delete.php?id=<?php echo $i[0];?>"><i class="far fa-trash-alt"></i></a></th>
                 
             </tr>
             <?php
@@ -51,3 +50,7 @@ if(mysqli_num_rows($result) > 0){
 <form method="POST" action="create.php">
         <button type="submit" class="btn btn-primary">New</button>
     </form>
+
+    <?php
+      include('footerad.php');
+    ?>
