@@ -12,14 +12,16 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/admin.php">
+    
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+    <link rel="stylesheet" href="../css/admin.css">
 </head>
   <body>
       <div class="menu text-center">
-          <div class="warper">
-            <a href="index.php">Trang Chủ</a>
+          <div class="wrapper">
+            <a href="../index.php">Trang Chủ</a>
             <a href="admin.php">admin</a>
-            <a href="logout.php">logout</a>
+            <a href="../logout.php">logout</a>
           </div>
       </div>
     <!-- Optional JavaScript -->
