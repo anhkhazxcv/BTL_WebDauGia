@@ -68,7 +68,7 @@ if (isset($_SESSION['uname'])) {
           </div>
           </div>
           <div class="col-4">
-          <img src="" alt="ảnh">
+          <img src="images/logo1.jpg" alt="ảnh">
           </div>
 
           </div>

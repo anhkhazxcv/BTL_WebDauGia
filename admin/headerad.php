@@ -16,14 +16,29 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
     <link rel="stylesheet" href="../css/admin.css">
 </head>
-  <body>
-      <div class="menu text-center">
-          <div class="wrapper">
-            <a href="../index.php">Trang Chủ</a>
-            <a href="admin.php">admin</a>
-            <a href="../logout.php">logout</a>
-          </div>
-      </div>
+    <div>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+      <a class="navbar-brand" href="../index.php">Trang Chủ</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" >
+        <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="admin.php">Admin</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="product-ad.php">Product</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../logout.php">logout</a>
+          </li>
+    </div>
+    </div>
+
+
+ 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
