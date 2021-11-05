@@ -1,66 +1,63 @@
 <?php
-    include('header-sp.php');
-    $result = mysqli_query($conn,"SELECT * FROM product");
-    if(mysqli_num_rows($result) > 0){
-        $quanlysp = mysqli_fetch_all($result);
-    }else echo 'Không đổ ra dữ liệu';
-?> 
- <div class="panel-body mt-3">
-          
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-              <th>Mã sản phẩm</th>
-              <th>Loại sản phẩm</th>
-              <th>Ảnh sản phẩm</th>
-              <th>Tên Sản phẩm</th>
-              <th>Mô tả sản phẩm</th>
-              <th>Giá khởi điểm đấu giá</th>
-              <th>Ngày bắt đầu đấu giá</th>
-              <th>Ngày kết thúc đấu giá</th>
-              <th>Trạng thái sản phẩm</th>
-              <th>Người mua sản phẩm</th> 
-              <th>Người bán sản phẩm</th>
-              <th width="60px">Xem chi tiết</th>
-              <th width="60px">Sửa</th>
-              <th width="60px">Xóa</th>
-              </tr>
-            </thead>
-            <tbody>
-            <?php
-                foreach($quanlysp as $i){
-                    ?>
-              <tr>
-                  <th><?php echo $i[0]; ?></th>
-                  <th><?php echo $i[1]; ?></th>
-                  <th><?php echo $i[2]; ?></th>
-                  <th><?php echo $i[3]; ?></th>
-                  <th><?php echo $i[4]; ?></th>
-                  <th><?php echo $i[5]; ?></th>
-                  <th><?php echo $i[6]; ?></th>
-                  <th><?php echo $i[7]; ?></th>
-                  <th><?php echo $i[8]; ?></th>
-                  <th><?php echo $i[9]; ?></th>
-                  <th><?php echo $i[10]; ?></th>
-                
-                   <th><a href="details-sp.php?id=<?php echo $i[0];?>"><i class="fas fa-eye"></i></a></th>
-                    <th><a href="edit-sp.php?id=<?php echo $i[0];?>"><i class="far fa-edit"></i></a></th>
-                    <th><a href="delete-sp.php?id=<?php echo $i[0];?>"><i class="far fa-trash-alt"></i></a></th>
-                
-              </tr>
-              <?php
-                        }
-                    ?>
-            </tbody>
-        
-          </table>
-        </div>
-
-        
-    <form method="POST" action="create-sp.php">
-        <button type="submit" class="btn btn-primary">Thêm sản phẩm</button>
-    </form>
-
-<?php
-    include('footer-sp.php');
+session_start();
+include 'config.php';
 ?>
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<style>
+.error {color: #FF0000;} 
+</style>
+<title></title>
+
+</head>
+
+<body background="images/pic11.jpg">
+<?php
+
+$username = $password= "";
+if ($_SERVER["REQUEST_METHOD"] == "POST")
+{
+	$username = $_POST['username'];
+	$password = $_POST['password'];
+	if($username && $password)
+	{
+			$sql = "SELECT * FROM users WHERE uid='$username' AND pwd='$password'";
+			$result = mysqli_query($conn,$sql);
+			if($row = mysqli_fetch_assoc($result))
+			{
+				$_SESSION['uname'] = $username;
+				$_SESSION['pwd'] = $password;
+				header('location: home.php');
+			}
+			else{
+			?>
+			<script>
+				alert("Nếu bạn chưa có, hãy tạo tài khoản!");
+				window.location="index.php";
+			</script>
+			<?php 
+			}
+
+	}
+}
+
+?>
+<div id="login">
+<h2>Login</h2>
+<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+
+<br><input type="text" name="username" placeholder="UserName" id="text"><span class="error">*</span><br>
+<br><input type="password" name="password" placeholder="Password" id="text"><span class="error">*</span><br><br>
+<input type="submit" class="buttonp">
+
+</form>
+<a href="register.php">
+    <button class="buttonp" style="background-color: blue;">Đăng Kí</button>
+</a>
+</div>
+
+
+</body>
+</html>
