@@ -59,25 +59,27 @@ INSERT INTO `category` (`cid`, `c_name`) VALUES
 --
 
 CREATE TABLE `product` (
-  `pd_id` int(11) NOT NULL,
-  `pd_type` varchar(50) NOT NULL,
-  `pd_description` varchar(1000) NOT NULL,
-  `pd_price` int(20) NOT NULL,
-  `pd_startdate` date DEFAULT NULL,
-  `pd_enddate` date DEFAULT NULL,
-  `pd_status` varchar(50) DEFAULT NULL,
-  `uid` varchar(25) NOT NULL,
-  `pd_name` varchar(100) NOT NULL
+  `sp_id` int(5) NOT NULL,
+  `sp_type` varchar(50) NOT NULL,
+  `sp_img` blob NOT NULL,
+  `sp_name` varchar(30) NOT NULL,
+  `sp_description` varchar(1000) NOT NULL,
+  `sp_price` int(20) NOT NULL,
+  `sp_startdate` date NOT NULL,
+  `sp_enddate` date NOT NULL,
+  `sp_status` varchar(50) NOT NULL,
+  `sp_buyer` varchar(50) NOT NULL,
+  `uid` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Đang đổ dữ liệu cho bảng `product`
 --
 
-INSERT INTO `product` (`pd_id`, `pd_type`, `pd_description`, `pd_price`, `pd_startdate`, `pd_enddate`, `pd_status`, `uid`, `pd_name`) VALUES
-(7, 'đồ dùng', 'đồ chơi đẹp', 1233, '0000-00-00', '0000-00-00', 'mới', 'hasua', 'new1'),
-(11, 'dfgh', 'đồ chơi đẹp', 123, '0000-00-00', '0000-00-00', 'mới', 'hasua', 'đồ chơi');
+INSERT INTO `product` (`sp_id`, `sp_type`, `sp_img`, `sp_name`, `sp_description`, `sp_price`, `sp_startdate`, `sp_enddate`, `sp_status`, `sp_buyer`, `uid`) VALUES
+(1000, 'ee', 0xefbfbdefbfbdefbfbdefbfbdefbfbd104a464946efbfbd0101efbfbdefbfbd01efbfbd01efbfbdefbfbdefbfbdefbfbdefbfbdefbfbdefbfbd0708161615181516151818181a1921191a1c1a1c1a1a1c191a1c1e1c1a1d1c1a181c212e251c1e2b1f19182638262b2f313535351a243b403b333f2e343531010c0c0c100f101f12121f342b252c313434343b3434343a3435343431343434313434343434343634363434343434343434343434343434343434343434343434efbfbdefbfbdefbfbd1108efbfbdefbfbd012c0301, 'ee', 'ê', 33333, '2021-11-02', '2021-11-11', 'còn hàng', 'eee', 'hasua');
 
+-- --------------------------------------------------------
 -- --------------------------------------------------------
 
 --
