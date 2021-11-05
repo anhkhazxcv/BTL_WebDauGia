@@ -20,6 +20,7 @@
               <th>Ngày kết thúc đấu giá</th>
               <th>Trạng thái sản phẩm</th>
               <th>Người bán sản phẩm</th>
+              <th width="60px">Đấu giá</th>
               <th width="60px">Xem chi tiết</th>
               <th width="60px">Sửa</th>
               <th width="60px">Xóa</th>
