@@ -1,7 +1,7 @@
 
 <div style="position: relative; left: 0; top: 0;">
   <img src="images/auction.jpg" style="position: relative; top: 0; left: 0;width:100%;height:300px"/>
-  <!-- <img src="images/mobile.png" style="position: absolute; bottom: 180px; left: 70px;"/> -->
+  <img src="images/mobile.png" style="position: absolute; bottom: 180px; left: 70px;"/>
 </div>
 
 

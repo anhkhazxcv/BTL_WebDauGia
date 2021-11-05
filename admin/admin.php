@@ -19,9 +19,9 @@ if(mysqli_num_rows($result) > 0){
       <th scope="col">Họ tên đệm</th>
       <th scope="col">Tên</th>
       <th scope="col">Tên đăng nhập</th>
-      <th scope="col">Mật khẩu</th>
-      <th scope="col">Số điện thoại</th>
+      <th scope="col" type =password>Mật khẩu</th>
       <th scope="col">Emai</th>    
+      <th scope="col">Số điện thoại</th>
       <th scope="col">Ngày sinh</th>
       <th scope="col">Địa chỉ</th>
       <th scope="col">sửa</th>

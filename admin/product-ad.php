@@ -31,14 +31,14 @@
               <tr>
                   <th><?php echo $i[0]; ?></th>
                   <th><?php echo $i[1]; ?></th>
-                  <th><?php echo $i[2]; ?></th>
+                  <th><img src="<?php echo $i[2]; ?>" style ="width: 80px; height: 80px"></th>
                   <th><?php echo $i[3]; ?></th>
                   <th><?php echo $i[4]; ?></th>
                   <th><?php echo $i[5]; ?></th>
                   <th><?php echo $i[6]; ?></th>
                   <th><?php echo $i[7]; ?></th>
                   <th><?php echo $i[8]; ?></th>
-                  <th><?php echo $i[9]; ?></th>
+                  <th><?php echo $i[10]; ?></th>
     
                     <th><a href="edit-ad.php?id=<?php echo $i[0];?>"><i class="far fa-edit"></i></a></th>
                     <th><a href="delete-ad.php?id=<?php echo $i[0];?>"><i class="far fa-trash-alt"></i></a></th>
