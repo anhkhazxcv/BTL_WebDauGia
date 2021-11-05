@@ -15,7 +15,7 @@
             $sp_enddate = $quanlysp['sp_enddate'];
             
             $sp_status = $quanlysp['sp_status'];
-            $sp_buyer = $quanlysp['sp_buyer'];
+  
             $uid = $quanlysp['uid'];
         }
     }
@@ -59,10 +59,10 @@
             <label>Trạng thái sản phẩm:</label><br>
             <?php echo $sp_startdate?>
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label>Người mua sản phẩm:</label><br>
             <?php echo $sp_buyer?>
-        </div> 
+        </div>  -->
       <div class="form-group">
             <label>Người bán sản phẩm:</label><br>
             <?php echo $uid?>
@@ -75,3 +75,4 @@
 <?php
     include('footer-sp.php');
 ?>
+ 
