@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 04, 2021 lúc 05:48 AM
+-- Thời gian đã tạo: Th10 05, 2021 lúc 02:04 AM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 8.0.10
 
@@ -55,22 +55,33 @@ INSERT INTO `category` (`cid`, `c_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `quanlysp`
+-- Cấu trúc bảng cho bảng `product`
 --
 
-CREATE TABLE `quanlysp` (
-  `sp_ma` int(5) NOT NULL,
-  `sp_loai` varchar(50) NOT NULL,
-  `sp_anh` blob NOT NULL,
-  `sp_ten` varchar(30) NOT NULL,
-  `sp_mota` varchar(1000) NOT NULL,
-  `sp_gia` int(20) NOT NULL,
-  `sp_ngaybd` date NOT NULL,
-  `sp_ngaykt` date NOT NULL,
-  `sp_trangthai` varchar(50) NOT NULL,
-  `sp_nguoimua` varchar(50) NOT NULL,
-  `uid` varchar(25) NOT NULL
+CREATE TABLE `product` (
+  `pd_id` int(11) NOT NULL,
+  `pd_type` varchar(50) NOT NULL,
+  `pd_description` varchar(1000) NOT NULL,
+  `pd_price` int(20) NOT NULL,
+  `pd_startdate` date DEFAULT NULL,
+  `pd_enddate` date DEFAULT NULL,
+  `pd_status` varchar(50) DEFAULT NULL,
+  `uid` varchar(25) NOT NULL,
+  `pd_name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `product`
+--
+
+INSERT INTO `product` (`pd_id`, `pd_type`, `pd_description`, `pd_price`, `pd_startdate`, `pd_enddate`, `pd_status`, `uid`, `pd_name`) VALUES
+(1, 'adf', 'dsfdasgdfg', 166, '0000-00-00', '0000-00-00', 'new', 'hasua', ''),
+(2, 'adf', 'dsfdasgdfg', 166, '0000-00-00', '0000-00-00', 'new', 'hasua', ''),
+(3, 'adf', 'dsfdasgdfg', 166, '0000-00-00', '0000-00-00', 'new', 'hasua', ''),
+(4, 'đồ dùng', 'đồ chơi đẹp', 1233, '0000-00-00', '0000-00-00', 'mới', 'hasua', ''),
+(5, 'product', 'This is the new toys for children', 100, '2021-11-03', '2021-11-03', 'new', 'hasua', ''),
+(7, 'đồ dùng', 'đồ chơi đẹp', 1233, '0000-00-00', '0000-00-00', 'mới', 'hasua', 'new1'),
+(11, 'dfgh', 'đồ chơi đẹp', 123, '0000-00-00', '0000-00-00', 'mới', 'hasua', 'đồ chơi');
 
 -- --------------------------------------------------------
 
@@ -81,20 +92,21 @@ CREATE TABLE `quanlysp` (
 CREATE TABLE `users` (
   `fname` varchar(25) NOT NULL,
   `lname` varchar(25) NOT NULL,
-  `uid` varchar(25) CHARACTER SET utf8mb4 NOT NULL,
+  `uid` varchar(25) NOT NULL,
   `pwd` varchar(25) NOT NULL,
   `email` varchar(25) NOT NULL,
   `mobile` varchar(25) NOT NULL,
-  `dob` date NOT NULL,
-  `address` varchar(60) NOT NULL,
+  `dob` date DEFAULT NULL,
+  `address` varchar(60) DEFAULT NULL,
   `admin` char(0) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Đang đổ dữ liệu cho bảng `users`
 --
 
 INSERT INTO `users` (`fname`, `lname`, `uid`, `pwd`, `email`, `mobile`, `dob`, `address`, `admin`) VALUES
+('Nguyễn', 'Hà', '0868342396', '123456', 'admin@a', '', '0000-00-00', ' ', ''),
 ('Nguyen Van', 'A', 'Abc', '654321', 'a@gmail.com', '0123456789', '0000-00-00', 'Nha', NULL),
 ('Nguyen Van', 'Kha', 'anhkhazxcv', '123456', 'anhkhazxcv@gmail.com', '0329994871', '0000-00-00', 'Tri Qua Bac Ninh', ''),
 ('Nguyen Hong', 'Ha', 'hasua', '123456', 'ha11882000@gmail.com', '0868342396', '0000-00-00', 'Hanoi', '');
@@ -104,10 +116,10 @@ INSERT INTO `users` (`fname`, `lname`, `uid`, `pwd`, `email`, `mobile`, `dob`, `
 --
 
 --
--- Chỉ mục cho bảng `quanlysp`
+-- Chỉ mục cho bảng `product`
 --
-ALTER TABLE `quanlysp`
-  ADD PRIMARY KEY (`sp_ma`),
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`pd_id`),
   ADD KEY `uid` (`uid`);
 
 --
@@ -117,14 +129,24 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`uid`);
 
 --
+-- AUTO_INCREMENT cho các bảng đã đổ
+--
+
+--
+-- AUTO_INCREMENT cho bảng `product`
+--
+ALTER TABLE `product`
+  MODIFY `pd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
 -- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Các ràng buộc cho bảng `quanlysp`
+-- Các ràng buộc cho bảng `product`
 --
-ALTER TABLE `quanlysp`
-  ADD CONSTRAINT `quanlysp_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `users` (`uid`);
+ALTER TABLE `product`
+  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `users` (`uid`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

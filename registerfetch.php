@@ -33,7 +33,7 @@ if($r->num_rows> 0){
 }
 
 else {
-$ins="INSERT INTO users SET name='$n',email='$e',password='$ps', phonenumber='$cn',dob='$dob', username='$u'";
+$ins="INSERT INTO users SET fname='$fn',lname = '$ln', uid = '$cn',pwd='$ps', email='$e', mobile='$phone',dob='$', address = ' ', admin = ''";
 $con->query($ins);
  
 }

@@ -1,35 +1,46 @@
 <?php
+    session_start();
     include('header-sp.php');
-    $result = mysqli_query($conn,"SELECT * FROM quanlysp");
-    if(mysqli_num_rows($result) > 0){
-        $quanlysp = mysqli_fetch_all($result);
-    }else echo 'Không đổ ra dữ liệu';
+    $con=mysqli_connect("localhost","root","","webdaugia");
 
-    if(isset($_POST['save'])){
-        $sp_ma = $_POST['sp_ma'];
-        $sp_loai = $_POST['sp_loai'];
-        $sp_anh = $_POST['sp_anh'];
-        $sp_ten = $_POST['sp_ten'];
-        $sp_mota = $_POST['sp_mota'];
-        $sp_gia = $_POST['sp_gia'];
-        $sp_ngaybd = $_POST['sp_ngaybd'];
-        $sp_ngaykt = $_POST['sp_ngaykt'];
-        $sp_nguoiban = $_POST['sp_nguoiban'];
-        $sp_trangthai = $_POST['sp_trangthai'];
-        $sp_nguoimua = $_POST['sp_nguoimua'];
+    if($con){
+      echo "";
+    }
+    else{
+        echo "connection failed";
+    }
         
 
-          mysqli_query($conn, "INSERT INTO `quanlysp` (sp_ma, sp_loai, sp_anh, sp_ten, sp_mota, sp_gia, sp_ngaybd, sp_ngaykt, sp_nguoiban, sp_trangthai, sp_nguoimua) VALUES ('$sp_ma', '$sp_loai', $sp_anh , '$sp_ten', '$sp_mota', '$sp_gia', '$sp_ngaybd', '$sp_ngaykt', '$sp_nguoiban', '$sp_trangthai', '$sp_nguoimua')");
+    if(isset($_POST['addPd'])){
+
+        $sp_ma = $_POST['sp_ma'];
+        $sp_loai = $_POST['sp_loai'];
+        // $sp_anh = " ";
+        $sp_mota = $_POST['sp_mota'];
+        $sp_gia = $_POST['sp_gia'];
+        $sp_trangthai = $_POST['sp_trangthai'];
+        $uid = $_POST['sp_nguoiban'];       
+        ?>
+        <script>
+            alert("<?php echo $_SESSION['uname'] ?>")
+        </script>   
+        <?php
+
+        
+        
+        
+        $ins = "INSERT INTO `product` (`pd_type`, `pd_description`, `pd_price`, `pd_startdate`, `pd_enddate`, `pd_status`, `uid`, `pd_name`) VALUES ( '$sp_loai' ,  '$sp_mota', '$sp_gia', '0000-00-00', '0000-00-00', '$sp_trangthai', '$uid','$sp_ma' ) ";
+        $con->query($ins);
 
         header("location:   index-sp.php");
     }
     
 ?>
 <div class="container">
-    <form method="POST">
+    <form method="POST" enctype='multipart/form-data'>
         <div class="form-group">
-            <label>Mã Sản Phẩm:</label>
-            <input type="number" class="form-control" name="sp_ma" >
+            <label>Tên sản phẩm:</label>
+            <input type="text" class="form-control" name="sp_ma" >
         </div>
         <div class="form-group">
             <label>Loại sản phẩm:</label>
@@ -37,11 +48,7 @@
         </div>
         <div class="form-group">
             <label>Ảnh sản phẩm:</label>
-            <input type="text" class="form-control" name="sp_anh" >
-        </div>
-        <div class="form-group">
-            <label>Tên sản phẩm:</label>
-            <input type="text" class="form-control" name="sp_ten" >
+            <input type="file" class="form-control" name="sp_anh" >
         </div>
         <div class="form-group">
             <label>Mô tả sản phẩm:</label>
@@ -49,34 +56,22 @@
         </div>
 
         <div class="form-group">
-            <label>Giá khởi điểm đấu giá:</label>
-            <input type="number" class="form-control" name="sp_gia" >
+            <label>Giá khởi điểm đấu giá (đơn vị $/USD):</label>
+            <input type="text" class="form-control" name="sp_gia" >
         </div>
 
         <div class="form-group">
-			<label for="birthday">Ngày đấu giá:</label>
-			<input type="date" class="form-control" id="year" name="sp_ngaybd" >
-		</div>
-
-        <div class="form-group">
-			<label for="birthday">Ngày kết thúc đấu giá:</label>
-			<input type="date" class="form-control" id="year" name="sp_ngaykt" >
-		</div>
-        <div class="form-group">
             <label>Người bán sản phẩm:</label>
-            <input type="text" class="form-control" name="sp_nguoiban" >
+            <input type="text" class="form-control" name="sp_nguoiban" value = <?php echo $_SESSION['uname'] ?> >
         </div>
         <div class="form-group">
             <label>Trạng thái sản phẩm:</label>
             <input type="text" class="form-control" name="sp_trangthai" >
         </div>
-        <div class="form-group">
-            <label>Người mua sản phẩm:</label>
-            <input type="text" class="form-control" name="sp_nguoimua" >
-        </div> 
+        
       
         <div class="form-group">
-            <button type="submit" class="btn btn-primary" name="save">Lưu sản phẩm</button>
+            <button type="submit" class="btn btn-primary" name="addPd">Lưu sản phẩm</button>
         </div>
     </form>
 </div>
