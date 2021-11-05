@@ -59,7 +59,7 @@ INSERT INTO `category` (`cid`, `c_name`) VALUES
 --
 
 CREATE TABLE `product` (
-  `sp_id` int(5) NOT NULL,
+  `sp_id` int(5) ,
   `sp_type` varchar(50) NOT NULL,
   `sp_img` blob NOT NULL,
   `sp_name` varchar(30) NOT NULL,
