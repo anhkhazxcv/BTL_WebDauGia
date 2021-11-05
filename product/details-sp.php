@@ -2,21 +2,21 @@
     include('header-sp.php');
     if(isset($_GET['id'])){
         $id = $_GET['id'];
-        $result = mysqli_query($conn, "SELECT * FROM quanlysp WHERE sp_ma= '$id'");
+        $result = mysqli_query($conn, "SELECT * FROM product WHERE sp_id= '$id'");
         if(mysqli_num_rows($result)==1){
             $quanlysp = mysqli_fetch_array($result);
-            $sp_ma =  $quanlysp['sp_ma'];
-            $sp_loai = $quanlysp['sp_loai'];
-            $sp_anh =  $quanlysp['sp_anh'];
-            $sp_ten =  $quanlysp['sp_ten'];
-            $sp_mota =  $quanlysp['sp_mota'];
-            $sp_gia =  $quanlysp['sp_gia'];
-            $sp_ngaybd =  $quanlysp['sp_ngaybd'];
-            $sp_ngaykt = $quanlysp['sp_ngaykt'];
-            $sp_nguoiban = $quanlysp['sp_nguoiban'];
-            $sp_trangthai = $quanlysp['sp_trangthai'];
-            $sp_nguoimua = $quanlysp['sp_nguoimua'];
+            $sp_id =  $quanlysp['sp_id'];
+            $sp_type = $quanlysp['sp_type'];
+            $sp_img =  $quanlysp['sp_img'];
+            $sp_name =  $quanlysp['sp_name'];
+            $sp_description =  $quanlysp['sp_description'];
+            $sp_price =  $quanlysp['sp_price'];
+            $sp_startdate =  $quanlysp['sp_startdate'];
+            $sp_enddate = $quanlysp['sp_enddate'];
             
+            $sp_status = $quanlysp['sp_status'];
+            $sp_buyer = $quanlysp['sp_buyer'];
+            $uid = $quanlysp['uid'];
         }
     }
 ?>
@@ -27,46 +27,46 @@
         </div>
         <div class="form-group">
             <label>Loại sản phẩm:</label><br>
-            <?php echo $sp_loai?>
+            <?php echo $sp_type?>
         </div>
         <div class="form-group">
             <label>Ảnh sản phẩm: </label> <br>
-            <?php echo $sp_anh?>
+            <?php echo $sp_img?>
         </div>
         <div class="form-group">
             <label>Tên sản phẩm: </label><br>
-            <?php echo $sp_ten?>
+            <?php echo $sp_name?>
         </div>
         <div class="form-group">
             <label>Mô tả sản phẩm: </label><br>
-            <?php echo $sp_mota?>
+            <?php echo $sp_description?>
         </div>
         <div class="form-group">
             <label>Giá khởi điểm ban đầu: </label><br>
-            <?php echo $sp_gia?>
+            <?php echo $sp_price?>
            
         </div>
         <div class="form-group">
             <label>Ngày đấu giá: </label><br>
-            <?php echo $sp_ngaybd?>
+            <?php echo $sp_startdate?>
         </div>
         <div class="form-group">
 			<label for="birthday">Ngày kết thúc đấu giá:</label>
-			<?php echo $sp_ngaykt?>
+			<?php echo $sp_enddate?>
 		</div>
-        <div class="form-group">
-            <label>Người bán sản phẩm:</label><br>
-            <?php echo $sp_nguoiban?>
-        </div>
+        
         <div class="form-group">
             <label>Trạng thái sản phẩm:</label><br>
-            <?php echo $sp_trangthai?>
+            <?php echo $sp_startdate?>
         </div>
         <div class="form-group">
             <label>Người mua sản phẩm:</label><br>
-            <?php echo $sp_nguoimua?>
+            <?php echo $sp_buyer?>
         </div> 
-      
+      <div class="form-group">
+            <label>Người bán sản phẩm:</label><br>
+            <?php echo $uid?>
+        </div>
         <form method="POST" action="index-sp.php">
         <button type="submit" class="btn btn-primary">Back</button>
     </form>
