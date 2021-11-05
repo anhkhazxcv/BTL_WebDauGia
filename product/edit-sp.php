@@ -13,9 +13,7 @@
             $sp_price =  $quanlysp['sp_price'];
             $sp_startdate =  $quanlysp['sp_startdate'];
             $sp_enddate = $quanlysp['sp_enddate'];
-            
             $sp_status = $quanlysp['sp_status'];
-            $sp_buyer = $quanlysp['sp_buyer'];
             $uid = $quanlysp['uid'];
             
         }
@@ -30,10 +28,9 @@
         $sp_startdate = $_POST['sp_startdate'];
         $sp_enddate = $_POST['sp_enddate'];
         $sp_status = $_POST['sp_status'];
-        $sp_buyer = $_POST['sp_buyer'];
         $uid = $_POST['uid'];
 
-        mysqli_query($conn, "UPDATE product SET sp_id='$sp_id',sp_type='$sp_type', sp_img='$sp_img', sp_name='$sp_name', sp_description='$sp_description', sp_price='$sp_price', sp_startdate='$sp_startdate',sp_enddate='$sp_enddate',sp_status='$sp_status',sp_buyer='$sp_buyer',uid='$uid' WHERE sp_id ='$id' ");
+        mysqli_query($conn, "UPDATE product SET sp_id='$sp_id',sp_type='$sp_type', sp_img='$sp_img', sp_name='$sp_name', sp_description='$sp_description', sp_price='$sp_price', sp_startdate='$sp_startdate',sp_enddate='$sp_enddate',sp_status='$sp_status',uid='$uid' WHERE sp_id ='$id' ");
         header("location: index-sp.php");
     }
 ?>
@@ -50,7 +47,7 @@
         </div>
         <div class="form-group">
             <label>Ảnh sản phẩm:</label>
-            <input type="file" class="form-control" name="sp_img" value="<?php echo $sp_img?>" >
+            <input type="text" class="form-control" name="sp_img" value="<?php echo $sp_img?>" >
         </div>
         <div class="form-group">
             <label>Tên sản phẩm:</label>
@@ -79,10 +76,10 @@
             <label>Trạng thái sản phẩm:</label>
             <input type="text" class="form-control" name="sp_status"  value="<?php echo $sp_status?>">
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label>Người mua sản phẩm:</label>
             <input type="text" class="form-control" name="sp_buyer" value="<?php echo $sp_buyer?>" >
-        </div> 
+        </div>  -->
 
         <div class="form-group">
             <label>Người bán sản phẩm:</label>
