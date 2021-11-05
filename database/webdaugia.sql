@@ -81,7 +81,8 @@ INSERT INTO `product` (`sp_id`, `sp_type`, `sp_img`, `sp_name`, `sp_description`
 
 -- --------------------------------------------------------
 -- --------------------------------------------------------
-
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`sp_id`);
 --
 -- Cấu trúc bảng cho bảng `users`
 --
