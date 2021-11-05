@@ -1,6 +1,11 @@
 <?php
 include('headerad.php');
 include('../config.php');
+session_start();
+if(!isset($_SESSION['uname']) || !isset($_SESSION['pwd'])){
+  echo 'vui lòng đăng nhập hoặc lập tài khoản';
+  header('location: ../index.php');
+}
 $result = mysqli_query($conn,"SELECT * FROM users");
 if(mysqli_num_rows($result) > 0){
     $user = mysqli_fetch_all($result);

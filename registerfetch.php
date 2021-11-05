@@ -19,7 +19,7 @@ $fn=$_POST['fname'];
 $ln=$_POST['lname'];
 $cn=$_POST['cname'];
 $e=$_POST['email'];
-$cn=$_POST['phone'];
+$phone=$_POST['phone'];
 $ps=$_POST['password'];
 
 

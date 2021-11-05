@@ -148,7 +148,7 @@ li {
     }
 }
 
-.button   /* Home-Page : Join button */
+.button  
 {
 background-color: #ff9948;
     
@@ -187,7 +187,7 @@ background-color: #fff;
       margin:0 0 5px; 
 font-family: "Roboto Condensed";
   }
-#login  /* Login page: form, */
+#login 
 {
         width:50%; 
         background-color: lightblue; 
@@ -201,7 +201,7 @@ font-family: "Roboto Condensed";
 }
 #text
 {
-    border-radius: 5px; /* login form,se7ll.php form  */
+    border-radius: 5px; 
     width: 300px;
     height: 40px;
 
@@ -209,7 +209,7 @@ font-family: "Roboto Condensed";
 }
 #text1
 {
-    border-radius: 5px; /* login form,se7ll.php form  */
+    border-radius: 5px; 
     width: 300px;
     height: 70px;
 
