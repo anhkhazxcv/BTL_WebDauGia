@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 05, 2021 lúc 02:04 AM
+-- Thời gian đã tạo: Th10 05, 2021 lúc 04:51 AM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 8.0.10
 
@@ -75,11 +75,6 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`pd_id`, `pd_type`, `pd_description`, `pd_price`, `pd_startdate`, `pd_enddate`, `pd_status`, `uid`, `pd_name`) VALUES
-(1, 'adf', 'dsfdasgdfg', 166, '0000-00-00', '0000-00-00', 'new', 'hasua', ''),
-(2, 'adf', 'dsfdasgdfg', 166, '0000-00-00', '0000-00-00', 'new', 'hasua', ''),
-(3, 'adf', 'dsfdasgdfg', 166, '0000-00-00', '0000-00-00', 'new', 'hasua', ''),
-(4, 'đồ dùng', 'đồ chơi đẹp', 1233, '0000-00-00', '0000-00-00', 'mới', 'hasua', ''),
-(5, 'product', 'This is the new toys for children', 100, '2021-11-03', '2021-11-03', 'new', 'hasua', ''),
 (7, 'đồ dùng', 'đồ chơi đẹp', 1233, '0000-00-00', '0000-00-00', 'mới', 'hasua', 'new1'),
 (11, 'dfgh', 'đồ chơi đẹp', 123, '0000-00-00', '0000-00-00', 'mới', 'hasua', 'đồ chơi');
 

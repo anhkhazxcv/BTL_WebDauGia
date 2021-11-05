@@ -34,11 +34,10 @@ if (isset($_SESSION['uname'])) {
 
           <div>
           <ul class="ul2">
-            <li><a class="active" href="bidbuyuse.php">Trang Chủ</a></li>
+            <li><a class="active" href="home.php">Trang Chủ</a></li>
             <li><a href="about.php">Giới Thiệu</a></li>
-            <li><a href="contactus.php">Liên Hệ</a></li>
-            <li><a href="#">Sản Phẩm</a></li>
-            <li><a href="#">Danh sách đầu giá thành công</a></li>
+            <li><a href="./product/index-sp.php">Sản Phẩm</a></li>
+            <!-- <li><a href="#">Danh sách đầu giá thành công</a></li> -->
             <li><a href="logout.php">Đăng xuất</a></li>
           
           </ul>
