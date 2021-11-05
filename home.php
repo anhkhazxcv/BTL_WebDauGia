@@ -150,9 +150,6 @@ if (isset($_SESSION['uname'])) {
               
             </div>
 
-            <?php
-              include('footer.php');
-            ?>
 
 
 
