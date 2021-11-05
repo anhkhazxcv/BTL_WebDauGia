@@ -1,77 +1,83 @@
 <?php
-    session_start();
     include('header-sp.php');
-    $con=mysqli_connect("localhost","root","","webdaugia");
+    $result = mysqli_query($conn,"SELECT * FROM product");
+    if(mysqli_num_rows($result) > 0){
+        $quanlysp = mysqli_fetch_all($result);
+    }else echo 'Không đổ ra dữ liệu';
 
-    if($con){
-      echo "";
+    if(isset($_POST['save'])){
+        $sp_id = $_POST['sp_id'];
+        $sp_type = $_POST['sp_type'];
+        $sp_img = $_POST['sp_img'];
+        $sp_name = $_POST['sp_name'];
+        $sp_description = $_POST['sp_description'];
+        $sp_price = $_POST['sp_price'];
+        $sp_startdate = $_POST['sp_startdate'];
+        $sp_enddate = $_POST['sp_enddate'];
+        $sp_status = $_POST['sp_status'];
+        $sp_buyer = $_POST['sp_buyer'];
+
+
+      
+
+        mysqli_query($conn, "INSERT INTO `product` (sp_id, sp_type, sp_img, sp_name, sp_description, sp_price, sp_startdate, sp_enddate,  sp_status, sp_buyer) VALUES ('$sp_id', '$sp_type', $sp_img , '$sp_name', '$sp_description', '$sp_price', '$sp_startdate', '$sp_enddate', '$sp_status', '$sp_buyer' )");
+
+
+        header("location: index-sp.php");
     }
-    else{
-        echo "connection failed";
-    }
-        
-
-    if(isset($_POST['addPd'])){
-
-        $sp_ma = $_POST['sp_ma'];
-        $sp_loai = $_POST['sp_loai'];
-        // $sp_anh = " ";
-        $sp_mota = $_POST['sp_mota'];
-        $sp_gia = $_POST['sp_gia'];
-        $sp_trangthai = $_POST['sp_trangthai'];
-        $uid = $_POST['sp_nguoiban'];       
-        ?>
-        <script>
-            alert("<?php echo $_SESSION['uname'] ?>")
-        </script>   
-        <?php
-
-        
-        
-        
-        $ins = "INSERT INTO `product` (`pd_type`, `pd_description`, `pd_price`, `pd_startdate`, `pd_enddate`, `pd_status`, `uid`, `pd_name`) VALUES ( '$sp_loai' ,  '$sp_mota', '$sp_gia', '0000-00-00', '0000-00-00', '$sp_trangthai', '$uid','$sp_ma' ) ";
-        $con->query($ins);
-
-        header("location:   index-sp.php");
-    }
-    
 ?>
 <div class="container">
-    <form method="POST" enctype='multipart/form-data'>
+    <form method="POST">
         <div class="form-group">
-            <label>Tên sản phẩm:</label>
-            <input type="text" class="form-control" name="sp_ma" >
+            <label>Mã Sản Phẩm:</label>
+            <input type="number" class="form-control" name="sp_id" >
         </div>
         <div class="form-group">
             <label>Loại sản phẩm:</label>
-            <input type="text" class="form-control" name="sp_loai" >
+            <input type="text" class="form-control" name="sp_type" >
         </div>
         <div class="form-group">
             <label>Ảnh sản phẩm:</label>
-            <input type="file" class="form-control" name="sp_anh" >
+            <input type="file" class="form-control" name="sp_img" >
+        </div>
+        <div class="form-group">
+            <label>Tên sản phẩm:</label>
+            <input type="text" class="form-control" name="sp_name" >
         </div>
         <div class="form-group">
             <label>Mô tả sản phẩm:</label>
-            <input type="text" class="form-control" name="sp_mota" >
+            <input type="text" class="form-control" name="sp_description" >
         </div>
 
         <div class="form-group">
-            <label>Giá khởi điểm đấu giá (đơn vị $/USD):</label>
-            <input type="text" class="form-control" name="sp_gia" >
+            <label>Giá khởi điểm đấu giá:</label>
+            <input type="number" class="form-control" name="sp_price" >
         </div>
 
         <div class="form-group">
-            <label>Người bán sản phẩm:</label>
-            <input type="text" class="form-control" name="sp_nguoiban" value = <?php echo $_SESSION['uname'] ?> >
-        </div>
+			<label for="birthday">Ngày đấu giá:</label>
+			<input type="date" class="form-control" id="year" name="sp_startdate" >
+		</div>
+
+        <div class="form-group">
+			<label for="birthday">Ngày kết thúc đấu giá:</label>
+			<input type="date" class="form-control" id="year" name="sp_enddate" >
+		</div>
+       
         <div class="form-group">
             <label>Trạng thái sản phẩm:</label>
-            <input type="text" class="form-control" name="sp_trangthai" >
+            <input type="text" class="form-control" name="sp_status" >
         </div>
-        
-      
         <div class="form-group">
-            <button type="submit" class="btn btn-primary" name="addPd">Lưu sản phẩm</button>
+            <label>Người mua sản phẩm:</label>
+            <input type="text" class="form-control" name="sp_buyer" >
+        </div> 
+       <!-- <div class="form-group">
+            <label>Người bán sản phẩm:</label>
+            <input type="text" class="form-control" name="uid" >
+        </div> -->
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary" name="save">Lưu sản phẩm</button>
         </div>
     </form>
 </div>
