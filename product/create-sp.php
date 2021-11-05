@@ -15,13 +15,13 @@
         $sp_startdate = $_POST['sp_startdate'];
         $sp_enddate = $_POST['sp_enddate'];
         $sp_status = $_POST['sp_status'];
-        $sp_buyer = $_POST['sp_buyer'];
+        // $sp_buyer = $_POST['sp_buyer'];
         $uid = $_POST['uid'];
 
 
-        mysqli_query($conn, "INSERT INTO `product` (`sp_id`, `sp_type`, `sp_img`, `sp_name`, `sp_description`, `sp_price`, `sp_startdate`, `sp_enddate`, `sp_status`, `sp_buyer`,`uid`) VALUES ('$sp_id', '$sp_type', '$sp_img', '$sp_name', '$sp_description', '$sp_price', '$sp_startdate', '$sp_enddate', '$sp_status', '$sp_buyer','$uid')"); 
+        mysqli_query($conn, "INSERT INTO `product` (`sp_id`, `sp_type`, `sp_img`, `sp_name`, `sp_description`, `sp_price`, `sp_startdate`, `sp_enddate`, `sp_status`,`uid`) VALUES ('$sp_id', '$sp_type', '$sp_img', '$sp_name', '$sp_description', '$sp_price', '$sp_startdate', '$sp_enddate', '$sp_status','$uid')"); 
 
-        // mysqli_query($conn, "INSERT INTO product (sp_id, sp_type, sp_img, sp_name, sp_description, sp_price, sp_startdate, sp_enddate,  sp_status, sp_buyer) VALUES ('$sp_id', '$sp_type', $sp_img , '$sp_name', '$sp_description', '$sp_price', '$sp_startdate', '$sp_enddate', '$sp_status', '$sp_buyer')");
+       
 
 
         header("location: index-sp.php");
@@ -39,7 +39,7 @@
         </div>
         <div class="form-group">
             <label>Ảnh sản phẩm:</label>
-            <input type="file" class="form-control" name="sp_img" >
+            <input type="text" class="form-control" name="sp_img" >
         </div>
         <div class="form-group">
             <label>Tên sản phẩm:</label>
@@ -69,14 +69,13 @@
             <label>Trạng thái sản phẩm:</label>
             <input type="text" class="form-control" name="sp_status" >
         </div>
-        <div class="form-group">
-            <label>Người mua sản phẩm:</label>
-            <input type="text" class="form-control" name="sp_buyer" >
-        </div> 
+        
        <div class="form-group">
             <label>Người bán sản phẩm:</label>
             <input type="text" class="form-control" name="uid" >
-        </div>
+        </div> 
+
+      
         <div class="form-group">
             <button type="submit" class="btn btn-primary" name="save">Lưu sản phẩm</button>
         </div>
