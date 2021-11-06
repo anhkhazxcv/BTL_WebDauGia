@@ -31,7 +31,7 @@
         $uid = $_POST['uid'];
 
         mysqli_query($conn, "UPDATE product SET sp_id='$sp_id',sp_type='$sp_type', sp_img='$sp_img', sp_name='$sp_name', sp_description='$sp_description', sp_price='$sp_price', sp_startdate='$sp_startdate',sp_enddate='$sp_enddate',sp_status='$sp_status',uid='$uid' WHERE sp_id ='$id' ");
-        header("location: index-sp.php");
+        header("location:product-ad.php");
     }
 ?>
     <div class="container">

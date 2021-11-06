@@ -3,8 +3,13 @@ include('headerad.php');
 include('../config.php');
 session_start();
 if(!isset($_SESSION['uname']) || !isset($_SESSION['pwd'])){
-  echo 'vui lòng đăng nhập hoặc lập tài khoản';
-  header('location: ../index.php');
+  ?>
+  <script>
+    alert("Nếu bạn chưa có, hãy tạo tài khoản!");
+    window.location="../index.php";
+  </script>
+  <?php 
+  //header('location: ../index.php');
 }
 $result = mysqli_query($conn,"SELECT * FROM users");
 if(mysqli_num_rows($result) > 0){
