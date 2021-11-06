@@ -51,7 +51,7 @@ if (isset($_SESSION['uname'])) {
           <p align="center" >Tiêu chuẩn cao nhất về quyền riêng tư của khách hàng chúng tôi</p>
           <p align="center" >Thông tin sản phẩm và giá cả chính xác</p>
 
-          <a href="#"><button type="button" class="button">Đăng Kí Ngay</button></a>
+          <a href="auction.php"><button type="button" class="button">Tham gia đấu giá ngay</button></a>
 
 
           <div class="row">

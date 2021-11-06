@@ -1,5 +1,6 @@
 <?php
 session_start();
+if (!isset($_SESSION['uname'])) {
 include 'config.php';
 ?>
 <!DOCTYPE HTML>
@@ -61,3 +62,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
 </body>
 </html>
+<?php 
+}else{
+     header("Location: home.php");
+     exit();
+}
+ ?>

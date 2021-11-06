@@ -1,4 +1,6 @@
 <?php
+    session_start();
+    if (isset($_SESSION['uname'])) {
     include('header-sp.php');
     $result = mysqli_query($conn,"SELECT * FROM product");
     if(mysqli_num_rows($result) > 0){
@@ -14,12 +16,12 @@
         $sp_price = $_POST['sp_price'];
         $sp_startdate = $_POST['sp_startdate'];
         $sp_enddate = $_POST['sp_enddate'];
-        $sp_status = $_POST['sp_status'];
+        // $sp_status = $_POST['sp_status'];
         // $sp_buyer = $_POST['sp_buyer'];
         $uid = $_POST['uid'];
 
 
-        mysqli_query($conn, "INSERT INTO `product` (`sp_id`, `sp_type`, `sp_img`, `sp_name`, `sp_description`, `sp_price`, `sp_startdate`, `sp_enddate`, `sp_status`,`uid`) VALUES ('$sp_id', '$sp_type', '$sp_img', '$sp_name', '$sp_description', '$sp_price', '$sp_startdate', '$sp_enddate', '$sp_status','$uid')"); 
+        mysqli_query($conn, "INSERT INTO `product` (`sp_id`, `sp_type`, `sp_img`, `sp_name`, `sp_description`, `sp_price`, `sp_startdate`, `sp_enddate`,`uid`) VALUES ('$sp_id', '$sp_type', '$sp_img', '$sp_name', '$sp_description', '$sp_price', '$sp_startdate', '$sp_enddate', '$uid')"); 
 
        
 
@@ -29,10 +31,7 @@
 ?>
 <div class="container">
     <form method="POST">
-        <div class="form-group">
-            <label>Mã Sản Phẩm:</label>
-            <input type="number" class="form-control" name="sp_id" >
-        </div>
+
         <div class="form-group">
             <label>Loại sản phẩm:</label>
             <input type="text" class="form-control" name="sp_type" >
@@ -64,15 +63,11 @@
 			<label for="birthday">Ngày kết thúc đấu giá:</label>
 			<input type="date" class="form-control" id="year" name="sp_enddate" >
 		</div>
-       
-        <div class="form-group">
-            <label>Trạng thái sản phẩm:</label>
-            <input type="text" class="form-control" name="sp_status" >
-        </div>
+
         
        <div class="form-group">
             <label>Người bán sản phẩm:</label>
-            <input type="text" class="form-control" name="uid" >
+            <input type="text" class="form-control" name="uid" value = "<?php echo $_SESSION['uname']?>">
         </div> 
 
       
@@ -83,4 +78,8 @@
 </div>
 <?php
     include('footer-sp.php');
+}else{
+    header("Location: index.php");
+    exit();
+}
 ?>
