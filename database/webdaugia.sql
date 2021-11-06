@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 05, 2021 lúc 09:18 PM
+-- Thời gian đã tạo: Th10 05, 2021 lúc 04:51 AM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 8.0.10
 
@@ -29,28 +29,28 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `category` (
   `cid` int(11) NOT NULL,
-  `c_name` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `c_name` varchar(200) NOT NULL,
+  `sp_id` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Đang đổ dữ liệu cho bảng `category`
 --
 
-INSERT INTO `category` (`cid`, `c_name`) VALUES
-(0, 'Mobiles'),
-(1, 'Mobile Accessories'),
-(2, 'Wearables'),
-(3, 'Laptops'),
-(4, 'Computer Accessories'),
-(5, 'Cameras'),
-(6, 'Tablets'),
-(0, 'Mobiles'),
-(1, 'Mobile Accessories'),
-(2, 'Wearables'),
-(3, 'Laptops'),
-(4, 'Computer Accessories'),
-(5, 'Cameras'),
-(6, 'Tablets');
+INSERT INTO `category` (`cid`, `c_name`,`sp_id` ) VALUES
+(1, 'Mobile Accessories','1002'),
+(2, 'Wearables','1002'),
+(3, 'Laptops','1002'),
+(4, 'Computer Accessories','1002'),
+(5, 'Cameras','1003'),
+(6, 'Tablets','1002'),
+(0, 'Mobiles','1003'),
+(1, 'Mobile Accessories','1002'),
+(2, 'Wearables','1003'),
+(3, 'Laptops','1002'),
+(4, 'Computer Accessories','1002'),
+(5, 'Cameras','1004'),
+(6, 'Tablets','1003');
 
 -- --------------------------------------------------------
 
@@ -59,7 +59,7 @@ INSERT INTO `category` (`cid`, `c_name`) VALUES
 --
 
 CREATE TABLE `product` (
-  `sp_id` int(5) NOT NULL,
+  `sp_id` int(5) ,
   `sp_type` varchar(50) NOT NULL,
   `sp_img` blob NOT NULL,
   `sp_name` varchar(30) NOT NULL,
@@ -67,8 +67,8 @@ CREATE TABLE `product` (
   `sp_price` int(20) NOT NULL,
   `sp_startdate` date NOT NULL,
   `sp_enddate` date NOT NULL,
-  `sp_status` varchar(50) NOT NULL DEFAULT 'Pending ',
-  `sp_buyer` varchar(50) DEFAULT NULL,
+  `sp_status` varchar(50) NOT NULL,
+  `sp_buyer` varchar(50) NOT NULL,
   `uid` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -77,11 +77,12 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`sp_id`, `sp_type`, `sp_img`, `sp_name`, `sp_description`, `sp_price`, `sp_startdate`, `sp_enddate`, `sp_status`, `sp_buyer`, `uid`) VALUES
-(1002, 'đồ dùng', 0x68747470733a2f2f63656c6c70686f6e65732e636f6d2e766e2f73666f72756d2f77702d636f6e74656e742f75706c6f6164732f323031382f31312f332d382e706e67, 'đồ dùng', 'sản phẩm còn mới 100%', 3, '2021-11-05', '2021-11-21', 'Running', '', 'hasua'),
-(1003, 'đồ dùng', 0x68747470733a2f2f63656c6c70686f6e65732e636f6d2e766e2f73666f72756d2f77702d636f6e74656e742f75706c6f6164732f323031382f31312f332d382e706e67, 'đồ dùng', 'sản phẩm còn mới 100%', 21123, '2021-11-07', '2021-11-28', 'Running', NULL, 'hasua');
+(1000, 'ee', 0xefbfbdefbfbdefbfbdefbfbdefbfbd104a464946efbfbd0101efbfbdefbfbd01efbfbd01efbfbdefbfbdefbfbdefbfbdefbfbdefbfbdefbfbd0708161615181516151818181a1921191a1c1a1c1a1a1c191a1c1e1c1a1d1c1a181c212e251c1e2b1f19182638262b2f313535351a243b403b333f2e343531010c0c0c100f101f12121f342b252c313434343b3434343a3435343431343434313434343434343634363434343434343434343434343434343434343434343434efbfbdefbfbdefbfbd1108efbfbdefbfbd012c0301, 'ee', 'ê', 33333, '2021-11-02', '2021-11-11', 'còn hàng', 'eee', 'hasua');
 
 -- --------------------------------------------------------
-
+-- --------------------------------------------------------
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`sp_id`);
 --
 -- Cấu trúc bảng cho bảng `users`
 --
@@ -116,7 +117,7 @@ INSERT INTO `users` (`fname`, `lname`, `uid`, `pwd`, `email`, `mobile`, `dob`, `
 -- Chỉ mục cho bảng `product`
 --
 ALTER TABLE `product`
-  ADD PRIMARY KEY (`sp_id`),
+  ADD PRIMARY KEY (`pd_id`),
   ADD KEY `uid` (`uid`);
 
 --
@@ -133,7 +134,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
-  MODIFY `sp_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1004;
+  MODIFY `pd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

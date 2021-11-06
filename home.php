@@ -86,7 +86,49 @@ if (isset($_SESSION['uname'])) {
             
 
 
+          <?php
+          error_reporting(0);
+          include 'config.php';
+          $sql = "SELECT * FROM product";
+          $result = mysqli_query($conn,$sql);
 
+          while($row = mysqli_fetch_array($result)){
+            if($row['status']==1)
+          {
+          ?>	<div class="spacing">
+            <div class="col-3">
+              <table style="border:1px solid black;">
+                <tr>
+                  <th>
+                  <h3><?php echo $row['pname']; ?></h3>
+                    </th>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <h3>MRP:<?php echo $row['currentprice']; ?></h3><br>
+                      <img  src="check.php?image_id=<?php echo $row["pid"]; ?>" width="300pd" height="250pd"><br>
+                      <h4>Auction id:<?php echo $row['pid']; ?></h4>
+                      <h5 align="right"><div id='clockdi<?php echo $row["pid"]?>'></div></h5>
+                      </td>
+                  </tr>
+
+                  <tr bgcolor="#3d4d65">
+                  <td style="text-align:center" padding:30px;>      
+                      <a href="login.php"><h3><font color="#fff">BID</font></h3></a>
+                  </td>
+                  </tr>
+              </table>
+              </div>
+              </div>
+          <?php
+          echo  "<script type='text/javascript'>";
+          echo 'var a='.json_encode($row['enddate']).';';
+          echo 'initializeClock("clockdi'.$row['pid'].'",a);';
+          echo "</script>";
+          }
+          }
+          ?>
 
           <div style=" padding-bottom: 15px">
             <div class="row">

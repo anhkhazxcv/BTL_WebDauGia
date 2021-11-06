@@ -392,7 +392,7 @@ if (isset($_SESSION['uname'])) {
                                    <li>Start auction day:<?php echo  $i[6]; ?></li>
                                    <li>Stop auction: <?php echo  $i[7]; ?> </li>
                                    <!-- <li>06<br>Bid No.</li> -->
-                                   <li class="btn btn-bid" style = "width: 200px">BID NOW</li>
+                                   <li class="btn btn-bid" style = "width: 200px"><a href="auctionfetch.php?id=<?php echo $i[0]?>&price=<?php echo $i[5]?>">BID NOW</a></li>
                               </ul>
                          </div>
                     </li>
